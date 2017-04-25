@@ -7,11 +7,11 @@ block content
         .col-md-6.col-md-offset-3
           .text-center
             h2 
-              |  Login
+              |  כניסה
 
           form(role='form', action='/login/admin', method='post')
             .form-group
-              label(for='InputName') Email
+              label(for='InputName') אימייל
               | &#x9;&#x9;&#x9;&#x9;&#x9;&#x9;
               .input-group
                 input#InputName.form-control(type='Email', name='email', placeholder='Enter email', required='')
@@ -21,7 +21,7 @@ block content
             | &#x9;&#x9;&#x9;&#x9;&#x9;
             | &#x9;&#x9;&#x9;&#x9;&#x9;
             .form-group
-              label(for='InputEmail') Password
+              label(for='InputEmail') סיסמה
               | &#x9;&#x9;&#x9;&#x9;&#x9;&#x9;
               .input-group
                 input#InputEmail.form-control(type='password', name='password', placeholder='Enter password', required='')
@@ -32,10 +32,10 @@ block content
             | &#x9;&#x9;&#x9;&#x9;&#x9;
             input(type='radio', name='vehicle', value='admin')
             i.fa.fa-user-secret
-              h4  Admin  &nbsp;  
+              h4  מנהל  &nbsp;  
             input(type='radio', name='vehicle', value='agent', checked='')
             i.fa.fa-user    
-              h4 Agent
+              h4 בעל עסק
             br
 
             input#submit.btn.wow.tada.btn-embossed.btn-primary.pull-right(type='submit', name='submit', value='Login')

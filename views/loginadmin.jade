@@ -8,11 +8,11 @@ block content
           .text-center
             h2 
               i.fa.fa-x6.fa-user-secret
-              |  Login Admin
+              |  כניסת מנהל
 
           form(role='form', action='/auth/login/admin', method='post')
             .form-group
-              label(for='InputName') Email
+              label(for='InputName') אמייל
               | &#x9;&#x9;&#x9;&#x9;&#x9;&#x9;
               .input-group
                 input#InputName.form-control(type='Email', name='email', placeholder='Enter email', required='')
@@ -22,7 +22,7 @@ block content
             | &#x9;&#x9;&#x9;&#x9;&#x9;
             | &#x9;&#x9;&#x9;&#x9;&#x9;
             .form-group
-              label(for='InputEmail') Password
+              label(for='InputEmail') סיסמה
               | &#x9;&#x9;&#x9;&#x9;&#x9;&#x9;
               .input-group
                 input#InputEmail.form-control(type='password', name='password', placeholder='Enter password', required='')

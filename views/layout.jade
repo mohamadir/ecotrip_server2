@@ -77,38 +77,38 @@ html
           ul.nav.navbar-nav
             if title == "app"
               li.menuItem
-                a(href='#whatis') What is?
+                a(href='#whatis') על האפליקציה
               | &#x9;&#x9;&#x9;&#x9;&#x9;
               li.menuItem
-                a(href='#screen') Screenshot
+                a(href='#screen') גלריה
               | &#x9;&#x9;&#x9;&#x9;&#x9;
               li.menuItem
-                a(href='#contact') Contact
+                a(href='#contact') צור קשר
             if(user)
               if(user.role == 'admin')
                 li 
-                  a(href="/admin") Admin
+                  a(href="/admin") מנהל
               else
                 li 
-                  a(href="/agent") Dashboard
+                  a(href="/agent") הלוח שלי
 
               li
-                a(href="/auth/logout") Logout
+                a(href="/auth/logout") יציאה
               
               
             else
               li.dropdown
                 a.dropdown-toggle(href='#', data-toggle='dropdown', role='button', aria-haspopup='true', aria-expanded='false')
-                  | Login 
+                  | כניסה 
                   span.caret
                 ul.dropdown-menu
                   li
-                    a(href='/auth/login/admin') Admin
+                    a(href='/auth/login/admin') מנהל
                   li
-                    a(href='/auth/login/agent') Agent
+                    a(href='/auth/login/agent') בעל עסק
 
               li.mentItem
-                a(href='/auth/register') Register
+                a(href='/auth/register') הרשמה
 
     block content
     

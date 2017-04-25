@@ -3,7 +3,7 @@ extends layout
 block content
   .row
     .col-md-6.col-md-offset-3
-      h1 Register Request
+      h1 הרשמה
       hr
 
       if(errors)
@@ -12,27 +12,27 @@ block content
 
       form(method="post" action="/auth/register") 
         .form-group
-          label Name
+          label שם
           input.form-control(type="text" name="name")
         
         .form-group
-          label Email
+          label אימייל
           input.form-control(type="Email" name="email")
 
         .form-group
-          label Password
+          label סיסמה
           input.form-control(type="Password" name="password")
 
         .form-group
-          label Website
+          label אתר
           input.form-control(type="text" name="website")
 
         .form-group
-          label Telephone Number
+          label טלפון
           input.form-control(type="number" name="telephone")
         
         .form-group
-          label Attractions Type
+          label סוג אטרקציה
           input.form-control(type="text" name="type")
 
 

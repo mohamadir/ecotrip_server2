@@ -9,27 +9,27 @@ block content
             .panel-body
               h3.name-center #{company.name}
               hr
-              h4 Website: #{company.website}
-              h4 Telephone: #{company.telephone}
-              h4 Email: #{user.email}
+              h4 אתר: #{company.website}
+              h4 טלפון: #{company.telephone}
+              h4 אימייל: #{user.email}
 
         .col-md-8
           .panel.panel-default
             .panel-body
               h3 
-                | Attraction
-                a.btn.btn-primary.pull-right(href="/agent/newattraction") Add New Atrrction
+                | אפליקציה
+                a.btn.btn-primary.pull-right(href="/agent/newattraction") הוספת אפליקציה
               hr
               table.table
                 
                 thead
                   tr
-                    th Name
-                    th Type
-                    th Groups
-                    th City
-                    th Area
-                    th Price
+                    th שם
+                    th סוג
+                    th קבוצה
+                    th עיר
+                    th איזור
+                    th מחיר
                     th
                 tbody
                   for attraction in attractions

@@ -3,7 +3,7 @@ block content
   .container
     .row
       .col-md-6.col-md-offset-3
-        h3 Add New Attraction
+        h3 הוספת אפליקציה חדשה
         hr
         if(errors)
           for error in errors
@@ -12,12 +12,12 @@ block content
         form(method="post" action="/agent/newattraction" enctype="multipart/form-data")
           .form-group
             // Full Name
-            label.control-label(for='full_name_id') Name
+            label.control-label(for='full_name_id') שם
             input#full_name_id.form-control(type='text', name='name', placeholder='Name')
 
           .form-group
             // City
-            label.control-label(for='city_id') Type
+            label.control-label(for='city_id') סוג
             select#state_id.form-control(name = 'type')
               option(value='אטרקציות ימיות') אטרקציות ימיות
               option(value='גני חיות / פינות ליטוף')  גני חיות / פינות ליטוף
@@ -36,17 +36,17 @@ block content
 
           .form-group
             // City
-            label.control-label(for='city_id') Details
+            label.control-label(for='city_id') פרטים על האטרקציה
             textarea.form-control(name='details')
 
           .form-group
             // City
-            label.control-label(for='city_id') City
+            label.control-label(for='city_id') עיר
             input#city_id.form-control(type='text', name='city', placeholder='city')
 
           .form-group
             // State Button
-            label.control-label(for='area_id') Area
+            label.control-label(for='area_id') איזור
             select#state_id.form-control(name = 'area')
               option(value='חרמון,גולן ואצבע הגליל') חרמון,גולן ואצבע הגליל
               option(value='גליל עליון וגליל מערבי') גליל עליון וגליל מערבי
@@ -62,11 +62,11 @@ block content
 
           .form-group
             // Full Name
-            label.control-label(for='full_name_id') Time
+            label.control-label(for='full_name_id') משך זמן
             input#full_name_id.form-control(type='number', name='time', placeholder='Time Atraction')
 
           .form-group
-            label.control-label Groups
+            label.control-label קבוצה
             br
             select#groups_multiselect(multiple="multiple", name='groups')
               option(value='אתגרי') אתגרי
@@ -80,11 +80,11 @@ block content
               option(value='מתאים לקבוצה') מתאים לקבוצה
 
           .form-group
-            label.control-label Price
+            label.control-label מחיר
             input#price_id.form-control(type='number', name='price')
 
           .form-group
-            label.control-label Telephone
+            label.control-label טלפון
             input#price_id.form-control(type='number', name='phone')
 
           .form-group
@@ -97,4 +97,4 @@ block content
           br
           .form-group
             // Submit Button
-            button.btn.btn-primary(type='submit') Add New!
+            button.btn.btn-primary(type='submit') הוספה
