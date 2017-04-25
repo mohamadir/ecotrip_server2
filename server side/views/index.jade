@@ -1,0 +1,238 @@
+extends layout
+
+block top
+  // FullScreen
+  .intro-header(style="height:92%;")
+    .col-xs-12.text-center.abcen1
+      h1.h1_home.wow.fadeIn(data-wow-delay='0.4s') Eco Trip
+      | &#x9;&#x9;&#x9;
+      h3.h3_home.wow.fadeIn(data-wow-delay='0.6s') Have best time with us
+      | &#x9;&#x9;&#x9;
+      ul.list-inline.intro-social-buttons
+        li#download
+          a.btn.btn-lg.mybutton_standard.wow.swing.wow.fadeIn(href='#whatis', data-wow-delay='1.2s')
+            span.network-name Getting Started
+    // /.container
+    .col-xs-12.text-center.abcen.wow.fadeIn
+      .button_down
+        a.imgcircle.wow.bounceInUp(data-wow-duration='1.5s', href='#whatis')
+          img.img_scroll(src='img/icon/circle.png', alt='')
+
+block content
+  // What is
+  #whatis.content-section-b(style='border-top: 0')
+    .container
+      .col-md-6.col-md-offset-3.text-center.wrap_title
+        h2 ECO TRIP קצת על 
+        | &#x9;&#x9;&#x9;&#x9;
+        p.lead(style='margin-top:0') 
+      | &#x9;&#x9;&#x9;
+      | &#x9;&#x9;&#x9;
+      .row
+        .col-sm-4.wow.fadeInDown.text-center
+          img.rotate.icon-svg(src='img/icon/bike.svg', alt='Generic placeholder image')
+          | &#x9;&#x9;&#x9;&#x9;  
+          h3 אופניים
+          | &#x9;&#x9;&#x9;&#x9;  
+          p.lead
+           |להשכיר אופניים ולהיות הכי קרובים לנוף! כאן תקבלו אופניים, מפה ותדרוך צמוד על שלל מסלולי רכיבה יפהפיים, וכל שנותר לצאת לטיול .. 
+
+
+
+          // <p><a class="btn btn-embossed btn-primary view" role="button">View Details</a></p>
+        // /.col-lg-4
+        .col-sm-4.wow.fadeInDown.text-center
+          img.rotate.icon-svg(src='img/icon/luggage.svg', alt='Generic placeholder image')
+          | &#x9;&#x9;&#x9;&#x9;   
+          h3 צימרים ומלונות בארץ
+          | &#x9;&#x9;&#x9;&#x9;   
+          p.lead
+            | ברוכים הבאים לקטגוריה צימרים ומלונות בארץ,  כאן תמצאו את כל מאוות הנפש, ומביא בפניכם עולם של הנאות לפי בחירה וסיווג שילוו אתכם .
+
+
+          // <p><a class="btn btn-embossed btn-primary view" role="button">View Details</a></p>
+        // /.col-lg-4
+        .col-sm-4.wow.fadeInDown.text-center
+          img.rotate.icon-svg(src='img/icon/car.svg', alt='Generic placeholder image')
+          | &#x9;&#x9;&#x9;&#x9;   
+          h3 טיולי גיפים ואופנעים 
+          | &#x9;&#x9;&#x9;&#x9;&#x9;
+          p.lead
+            | טיולי ג'יפים מאתגרים וחווייתים בקבוצות קטנות, עם החברה הגיאוגרפית
+            |קבוצות קטנות ואיכותיות · המדריכים המובילים בתחומם
+          // <p><a class="btn btn-embossed btn-primary view" role="button">View Details</a></p>
+        // /.col-lg-4
+      // /.row
+      .row.tworow
+        .col-sm-4.wow.fadeInDown.text-center
+          img.rotate.icon-svg(src='img/icon/mount.svg', alt='Generic placeholder image')
+          | &#x9;&#x9;&#x9;&#x9;  
+          h3 טיולי סנפלינג
+
+
+          | &#x9;&#x9;&#x9;&#x9;  
+          p.lead
+            | טיולי סנפלינג בכל הארץ. אנחנו נותנים ציוד חדש ותיקני, ביטוח מסודר, ומדריכים בעלי תעודות וניסיון של שנים. ובנוסף לכך מדריכים ..
+          // <p><a class="btn btn-embossed btn-primary view" role="button">View Details</a></p>
+        // /.col-lg-4
+        .col-sm-4.wow.fadeInDown.text-center
+          img.rotate.icon-svg(src='img/icon/trip.svg', alt='Generic placeholder image')
+          | &#x9;&#x9;&#x9;&#x9;   
+          h3 חיפוש מסלול
+          | &#x9;&#x9;&#x9;&#x9;   
+          p.lead
+            | חיפוש  מסלול של  טבע ובמים, אטרקציות לרוב, ושלל אתרי קמפיג ללינת לילה בשטח או צימרים מפנקים לחופשה משפחתית או רומנטית. 
+          // <p><a class="btn btn-embossed btn-primary view" role="button">View Details</a></p>
+        // /.col-lg-4
+        .col-sm-4.wow.fadeInDown.text-center
+          img.rotate.icon-svg(src='img/icon/plus.svg', alt='Generic placeholder image')
+          | &#x9;&#x9;&#x9;&#x9;   
+          h3 ועוד
+          | &#x9;&#x9;&#x9;&#x9; 
+          p.lead
+            |ו עוד  ......
+          // <p><a class="btn btn-embossed btn-primary view" role="button">View Details</a></p>
+        // /.col-lg-4
+      // /.row
+
+  //
+  #screen.content-section-a
+    .container
+      .row
+        .col-md-6.col-md-offset-3.text-center.wrap_title
+          h2 Screen App
+          | &#x9;&#x9;&#x9;&#x9;
+          p.lead(style='margin-top:0') A special thanks to Death.
+      | &#x9;&#x9;    
+      .row.wow.bounceInUp
+        #owl-demo.owl-carousel
+          a.image-link(href='img/slide/1.png')
+            .item
+              img.img-responsive.img-rounded(src='img/slide/1.png', alt='Owl Image')
+          | &#x9;&#x9;&#x9;&#x9;
+          |                
+          a.image-link(href='img/slide/2.png')
+            .item
+              img.img-responsive.img-rounded(src='img/slide/2.png', alt='Owl Image')
+          | &#x9;&#x9;&#x9;&#x9;
+          | &#x9;&#x9;&#x9;&#x9;
+          a.image-link(href='img/slide/3.png')
+            .item
+              img.img-responsive.img-rounded(src='img/slide/3.png', alt='Owl Image')
+          | &#x9;&#x9;&#x9;&#x9;
+          | &#x9;&#x9;&#x9;&#x9;
+          a.image-link(href='img/slide/4.png')
+            .item
+              img.img-responsive.img-rounded(src='img/slide/4.png', alt='Owl Image')
+          a.image-link(href='img/slide/1.png')
+            .item
+              img.img-responsive.img-rounded(src='img/slide/1.png', alt='Owl Image')
+          | &#x9;&#x9;&#x9;&#x9;
+          |                
+          a.image-link(href='img/slide/2.png')
+            .item
+              img.img-responsive.img-rounded(src='img/slide/2.png', alt='Owl Image')
+          | &#x9;&#x9;&#x9;&#x9;
+          | &#x9;&#x9;&#x9;&#x9;
+          a.image-link(href='img/slide/3.png')
+            .item
+              img.img-responsive.img-rounded(src='img/slide/3.png', alt='Owl Image')
+
+          | &#x9;&#x9;&#x9;&#x9;
+          | &#x9;&#x9;&#x9;&#x9;
+          a.image-link(href='img/slide/4.png')
+            .item
+              img.img-responsive.img-rounded(src='img/slide/4.png', alt='Owl Image')
+  | &#x9;
+  | &#x9;
+  
+  // Banner Download
+  #downloadlink.banner
+    .container
+      .row
+        .col-md-6.col-md-offset-3.text-center.wrap_title
+          h2 Download Free
+          | &#x9;&#x9;&#x9;&#x9;
+          br
+          | &#x9;&#x9;&#x9;&#x9;
+          p
+            a.btn.btn-embossed.btn-primary.view(role='button') Free Download
+
+  // Contact us
+  #contact.content-section-a
+    .container
+      .row
+        .col-md-6.col-md-offset-3.text-center.wrap_title
+          h2 Contact Us
+          | &#x9;&#x9;&#x9;&#x9;
+          p.lead(style='margin-top:0') Eco Trip App
+        | &#x9;&#x9;&#x9;
+        | &#x9;&#x9;&#x9;
+        form(role='form', action='',   method='post')
+          .col-md-6
+            .form-group
+              label(for='InputName') Your Name
+              | &#x9;&#x9;&#x9;&#x9;&#x9;&#x9;
+              .input-group
+                input#InputName.form-control(type='text', name='InputName', placeholder='Enter Name', required='')
+                | &#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;
+                span.input-group-addon
+                  i.glyphicon.glyphicon-ok.form-control-feedback
+            | &#x9;&#x9;&#x9;&#x9;&#x9;
+            | &#x9;&#x9;&#x9;&#x9;&#x9;
+            .form-group
+              label(for='InputEmail') Your Email
+              | &#x9;&#x9;&#x9;&#x9;&#x9;&#x9;
+              .input-group
+                input#InputEmail.form-control(type='email', name='InputEmail', placeholder='Enter Email', required='')
+                | &#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;
+                span.input-group-addon
+                  i.glyphicon.glyphicon-ok.form-control-feedback
+            | &#x9;&#x9;&#x9;&#x9;&#x9;
+            | &#x9;&#x9;&#x9;&#x9;&#x9;
+            .form-group
+              label(for='InputMessage') Message
+              | &#x9;&#x9;&#x9;&#x9;&#x9;&#x9;
+              .input-group
+                textarea#InputMessage.form-control(name='InputMessage', rows='5', required='')
+                | &#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;
+                span.input-group-addon
+                  i.glyphicon.glyphicon-ok.form-control-feedback
+            | &#x9;&#x9;&#x9;&#x9;&#x9;
+            input#submit.btn.wow.tada.btn-embossed.btn-primary.pull-right(type='submit', name='submit', value='Submit')
+        | &#x9;&#x9;&#x9;
+        | &#x9;&#x9;&#x9;
+        hr.featurette-divider.hidden-lg
+        | &#x9;&#x9;&#x9;&#x9;
+        .col-md-5.col-md-push-1.address
+          address
+            h3 Office Location
+            | &#x9;&#x9;&#x9;&#x9;&#x9;
+            p.lead
+              a(href='https://www.google.com/maps/place/Abu+Ghosh,+Israel/@31.8065199,35.0998072,15z/data=!3m1!4b1!4m5!3m4!1s0x1502d0df20f146e3:0x87c74d4830d6aced!8m2!3d31.806293!4d35.109193')
+                
+                br
+                | &#x9;&#x9;&#x9;&#x9;&#x9;Abu GHosh ,  
+              br
+              | &#x9;&#x9;&#x9;&#x9;&#x9;Phone1: 052-5662-875
+              br
+              | &#x9;&#x9;&#x9;&#x9;&#x9;Phone2: 050-9840-407
+          | &#x9;&#x9;&#x9;&#x9;&#x9;
+          h3 Social
+          | &#x9;&#x9;&#x9;&#x9;&#x9;
+          li.social
+            a(href='http://www.facebook.com/')
+              i.fa.fa-facebook-square.fa-size  
+            | &#x9;&#x9;&#x9;&#x9;&#x9;
+            a(href='http://twitter.com')
+              i.fa.fa-twitter-square.fa-size  
+            |  
+            | &#x9;&#x9;&#x9;&#x9;&#x9;
+            a(href='http://gooogle.com')
+              i.fa.fa-google-plus-square.fa-size  
+            | &#x9;&#x9;&#x9;&#x9;&#x9;
+  | &#x9;
+  | &#x9;
+  | &#x9;
+  |     
+

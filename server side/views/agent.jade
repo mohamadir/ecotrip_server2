@@ -1,0 +1,51 @@
+extends layout
+
+block content
+  section.info
+    .container
+      .row
+        .col-md-4
+          .panel.panel-default
+            .panel-body
+              h3.name-center #{company.name}
+              hr
+              h4 Website: #{company.website}
+              h4 Telephone: #{company.telephone}
+              h4 Email: #{user.email}
+
+        .col-md-8
+          .panel.panel-default
+            .panel-body
+              h3 
+                | Attraction
+                a.btn.btn-primary.pull-right(href="/agent/newattraction") Add New Atrrction
+              hr
+              table.table
+                
+                thead
+                  tr
+                    th Name
+                    th Type
+                    th Groups
+                    th City
+                    th Area
+                    th Price
+                    th
+                tbody
+                  for attraction in attractions
+                    tr
+                      td= attraction.name
+                      td= attraction.type
+                      td= attraction.groups
+                      td= attraction.city
+                      td= attraction.area
+                      td= attraction.price
+                      td
+                        a.btn.btn-danger.btnremove(data-id="#{attraction._id}") <i class="fa fa-trash" aria-hidden="true"></i>
+
+              
+
+
+
+
+

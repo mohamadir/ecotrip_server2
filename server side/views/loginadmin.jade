@@ -1,0 +1,63 @@
+extends layout
+
+block content
+  #contact.content-section-b
+    .container
+      .row
+        .col-md-6.col-md-offset-3
+          .text-center
+            h2 
+              i.fa.fa-x6.fa-user-secret
+              |  Login Admin
+
+          form(role='form', action='/auth/login/admin', method='post')
+            .form-group
+              label(for='InputName') Email
+              | &#x9;&#x9;&#x9;&#x9;&#x9;&#x9;
+              .input-group
+                input#InputName.form-control(type='Email', name='email', placeholder='Enter email', required='')
+                | &#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;
+                span.input-group-addon
+                  i.glyphicon.glyphicon-ok.form-control-feedback
+            | &#x9;&#x9;&#x9;&#x9;&#x9;
+            | &#x9;&#x9;&#x9;&#x9;&#x9;
+            .form-group
+              label(for='InputEmail') Password
+              | &#x9;&#x9;&#x9;&#x9;&#x9;&#x9;
+              .input-group
+                input#InputEmail.form-control(type='password', name='password', placeholder='Enter password', required='')
+                | &#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;
+                span.input-group-addon
+                  i.glyphicon.glyphicon-ok.form-control-feedback
+            | &#x9;&#x9;&#x9;&#x9;&#x9;
+            | &#x9;&#x9;&#x9;&#x9;&#x9;
+            input#submit.btn.wow.tada.btn-embossed.btn-primary.pull-right(type='submit', name='submit', value='Login')
+
+        //- .col-md-6.wrap_title
+        //-   .text-center
+        //-     h2 
+        //-       i.fa.fa-user 
+        //-       |  Agent Login
+        //-   form(role='form', action='/login/agent', method='post')
+        //-     .form-group
+        //-       label(for='InputName') Email
+        //-       | &#x9;&#x9;&#x9;&#x9;&#x9;&#x9;
+        //-       .input-group
+        //-         input#InputName.form-control(type='email', name='email', placeholder='Enter email', required='')
+        //-         | &#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;
+        //-         span.input-group-addon
+        //-           i.glyphicon.glyphicon-ok.form-control-feedback
+        //-     | &#x9;&#x9;&#x9;&#x9;&#x9;
+        //-     | &#x9;&#x9;&#x9;&#x9;&#x9;
+        //-     .form-group
+        //-       label(for='InputEmail') Password
+        //-       | &#x9;&#x9;&#x9;&#x9;&#x9;&#x9;
+        //-       .input-group
+        //-         input#InputEmail.form-control(type='password', name='password', placeholder='Enter password', required='')
+        //-         | &#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;
+        //-         span.input-group-addon
+        //-           i.glyphicon.glyphicon-ok.form-control-feedback
+        //-     | &#x9;&#x9;&#x9;&#x9;&#x9;
+        //-     | &#x9;&#x9;&#x9;&#x9;&#x9;
+        //-     input#submit.btn.wow.tada.btn-embossed.btn-primary.pull-right(type='submit', name='submit', value='Login')
+

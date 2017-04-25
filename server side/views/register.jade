@@ -1,0 +1,39 @@
+extends layout
+
+block content
+  .row
+    .col-md-6.col-md-offset-3
+      h1 Register Request
+      hr
+
+      if(errors)
+        for error in errors
+          .alert.alert-danger= error.msg
+
+      form(method="post" action="/auth/register") 
+        .form-group
+          label Name
+          input.form-control(type="text" name="name")
+        
+        .form-group
+          label Email
+          input.form-control(type="Email" name="email")
+
+        .form-group
+          label Password
+          input.form-control(type="Password" name="password")
+
+        .form-group
+          label Website
+          input.form-control(type="text" name="website")
+
+        .form-group
+          label Telephone Number
+          input.form-control(type="number" name="telephone")
+        
+        .form-group
+          label Attractions Type
+          input.form-control(type="text" name="type")
+
+
+        input(type="submit" value="register" class="btn btn-primary")

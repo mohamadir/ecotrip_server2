@@ -1,0 +1,100 @@
+extends layout
+block content
+  .container
+    .row
+      .col-md-6.col-md-offset-3
+        h3 Add New Attraction
+        hr
+        if(errors)
+          for error in errors
+            .alert.alert-danger= error.msg
+
+        form(method="post" action="/agent/newattraction" enctype="multipart/form-data")
+          .form-group
+            // Full Name
+            label.control-label(for='full_name_id') Name
+            input#full_name_id.form-control(type='text', name='name', placeholder='Name')
+
+          .form-group
+            // City
+            label.control-label(for='city_id') Type
+            select#state_id.form-control(name = 'type')
+              option(value='אטרקציות ימיות') אטרקציות ימיות
+              option(value='גני חיות / פינות ליטוף')  גני חיות / פינות ליטוף
+              option(value='פארק משחקים')  פארק משחקים
+              option(value='ספורט ימי/ צלילה / שיט') ספורט ימי/ צלילה / שיט
+              option(value='אטרקציות בטבע') אטרקציות בטבע
+              option(value='השכרת אופניים או אופניים חשמליים') השכרת אופניים או אופניים חשמליים
+              option(value='פארק דיג') פארק דיג
+              option(value='סדנאות / הרצאות') סדנאות / הרצאות
+              option(value='טרקטרונים / קטרינג / רייזרים') טרקטרונים / קטרינג / רייזרים
+              option(value='מרכז מבקרים') מרכז מבקרים
+              option(value='צפרות') צפרות
+              option(value='תיירות חקלאית') תיירות חקלאית
+              option(value='אטרקציות לקבוצות ואירועים') אטרקציות לקבוצות ואירועים
+              option(value='סיורים') סיורים
+
+          .form-group
+            // City
+            label.control-label(for='city_id') Details
+            textarea.form-control(name='details')
+
+          .form-group
+            // City
+            label.control-label(for='city_id') City
+            input#city_id.form-control(type='text', name='city', placeholder='city')
+
+          .form-group
+            // State Button
+            label.control-label(for='area_id') Area
+            select#state_id.form-control(name = 'area')
+              option(value='חרמון,גולן ואצבע הגליל') חרמון,גולן ואצבע הגליל
+              option(value='גליל עליון וגליל מערבי') גליל עליון וגליל מערבי
+              option(value='גליל תחתון, עמקים וגלבוע') גליל תחתון, עמקים וגלבוע
+              option(value='כרמל, רמות מנשה והשרון') כרמל, רמות מנשה והשרון
+              option(value='מישור החוף וגוש דן') מישור החוף וגוש דן
+              option(value='שומרון') שומרון
+              option(value='ירושלים') ירושלים
+              option(value='ים המלח ומדבר יהודה') ים המלח ומדבר יהודה
+              option(value='צפון הנגב') צפון הנגב
+              option(value='מרכז הנגב והמכתשים') מרכז הנגב והמכתשים
+              option(value='דרום הנגב והרי אילת') דרום הנגב והרי אילת
+
+          .form-group
+            // Full Name
+            label.control-label(for='full_name_id') Time
+            input#full_name_id.form-control(type='number', name='time', placeholder='Time Atraction')
+
+          .form-group
+            label.control-label Groups
+            br
+            select#groups_multiselect(multiple="multiple", name='groups')
+              option(value='אתגרי') אתגרי
+              option(value='סיורים')  סיורים
+              option(value='פתוח בשבת')  פתוח בשבת
+              option(value='לילדים') לילדים
+              option(value='רומנטי') רומנטי
+              option(value='חינם') חינם
+              option(value='כניסה למים') כניסה למים
+              option(value='אנשים עם מוגבליות') אנשים עם מוגבליות
+              option(value='מתאים לקבוצה') מתאים לקבוצה
+
+          .form-group
+            label.control-label Price
+            input#price_id.form-control(type='number', name='price')
+
+          .form-group
+            label.control-label Telephone
+            input#price_id.form-control(type='number', name='phone')
+
+          .form-group
+            label.custom-file
+            input#file.custom-file-input(type='file', name="images" multiple)
+            span.custom-file-control
+
+          input(type="hidden" value="#{company}" name="company")
+
+          br
+          .form-group
+            // Submit Button
+            button.btn.btn-primary(type='submit') Add New!
