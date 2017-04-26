@@ -13,7 +13,7 @@ var attSchema = new Schema({
   city: String,
   phone: Number,
   area: String,
-  time: Number,
+  time: String,
   details: String,
   timerating: Number,
   engoyrating: Number,
