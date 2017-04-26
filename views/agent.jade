@@ -34,7 +34,8 @@ block content
                 tbody
                   for attraction in attractions
                     tr
-                      td= attraction.name
+                      td
+                        a(href="")= attraction.name
                       td= attraction.type
                       td= attraction.groups
                       td= attraction.city
