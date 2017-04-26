@@ -57,15 +57,14 @@ router.post('/newattraction', isAuthenticated, upload.array('images', 12),
 
   console.log("===========>>>>> companyid: ", req.body.userid);
 
-  // req.checkBody('name', 'Name is require').notEmpty();
-  // req.checkBody('type', 'Type is require').notEmpty();
-  // req.checkBody('city', 'City is require').notEmpty();
-  // req.checkBody('area', 'Area is require').notEmpty();
-  // req.checkBody('time', 'Time is require').notEmpty();
-  // req.checkBody('details', 'Details is require').notEmpty();
-  // req.checkBody('groups', 'Groups is require').notEmpty();
-  // req.checkBody('price', 'Price is require').notEmpty();
-  //req.checkBody('images', 'Images is require').notEmpty();
+  req.checkBody('name', 'Name is require').notEmpty();
+  req.checkBody('type', 'Type is require').notEmpty();
+  req.checkBody('city', 'City is require').notEmpty();
+  req.checkBody('area', 'Area is require').notEmpty();
+  req.checkBody('time', 'Time is require').notEmpty();
+  req.checkBody('details', 'Details is require').notEmpty();
+  req.checkBody('groups', 'Groups is require').notEmpty();
+  req.checkBody('price', 'Price is require').notEmpty();
 
   var images = [];
   for(var i = 0; i < req.files.length; i++) {
