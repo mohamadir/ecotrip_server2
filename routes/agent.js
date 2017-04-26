@@ -13,11 +13,13 @@ var geocoder = require('geocoder');
 /* GET users listing. */
 router.get('/', isAuthenticated, function(req, res){
   id = req.query.id || res.locals.user._id;
+  console.log(id);
   Company.findOne({userid: id}, function(err, data){
+    console.log(data);
     if(err) throw err;
     User.findById(id, function(err, user){
       if(err) throw err;
-      Attraction.find({}, function(err, attractions){
+      Attraction.find({userid: id}, function(err, attractions){
         res.render('agent', {
           company: data, 
           user: user,
@@ -32,12 +34,7 @@ router.get('/', isAuthenticated, function(req, res){
 
 
 router.get('/newattraction', isAuthenticated, function(req, res, next){
-  Company.findOne({userid: res.locals.user._id}, function(err, data){
-    if(err) throw err;
-    console.log(data)
-    res.render('newattraction', {company: data});
-  });
-  
+  res.render('newattraction', {userid: res.locals.user._id});
 });
 
 router.post('/newattraction', isAuthenticated, upload.array('images', 12), 
@@ -56,7 +53,9 @@ router.post('/newattraction', isAuthenticated, upload.array('images', 12),
   var engoyrating = 0; 
   var rating = 0;
   var price = req.body.price;
-  var companyid = req.body.company._id;
+  var userid = req.body.userid;
+
+  console.log("===========>>>>> companyid: ", req.body.userid);
 
   // req.checkBody('name', 'Name is require').notEmpty();
   // req.checkBody('type', 'Type is require').notEmpty();
@@ -105,12 +104,13 @@ router.post('/newattraction', isAuthenticated, upload.array('images', 12),
         rating: rating,
         price: price,
         images: images,
-        companyid: companyid
+        userid: userid,
       });
+
+      console.log(attraction);
 
       attraction.save(function(err){
         if(err) throw err;
-        console.log("=====>>>> Success");
         res.redirect('/agent');
       });
     }
@@ -136,6 +136,20 @@ router.get('/address', function(req, res, next){
  
 });
 */
+router.get('/attraction/:id/edit', function(req,res,next){
+
+  var id = req.params.id;
+  Attraction.findById(id,function(err,data){
+    if (err) throw err;
+    else
+    {
+      res.render('attractionedit', {attraction: data});
+    }
+
+  });
+
+
+});
 router.post('/delete', function(req, res){
   var userId = req.body.userId || req.query.userId;
 

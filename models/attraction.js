@@ -23,7 +23,7 @@ var attSchema = new Schema({
     src: String,
     base64: String
   }],
-  companyid: Schema.Types.ObjectId
+  userid: Schema.Types.ObjectId
 }); 
 
 
