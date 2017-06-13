@@ -10,3 +10,15 @@
 .name-center{
   text-align: center !important;
 }
+
+.collapse-item{
+  margin-left: 10px;
+}
+
+.clear-fix{
+  clear: both;
+}
+
+.footer{
+  max-height: 100px !important;
+}

@@ -28,6 +28,23 @@ $(document).ready(function() {
          }
       })
    	});
+
+   	$('.btnremove2').on('click', function() {
+			console.log("Delete Requset");
+      var companyId = $(this).attr('data-id');
+      $.ajax({
+         method: "POST",
+         url: '/admin/company/delete',
+         data: {"companyId": companyId},
+         success: function(result) {
+            if(result) {
+               location.reload();
+            }
+         }
+      })
+   	});
+
+
 		$("#groups_multiselect").multiselect();
 
 		//animated logo

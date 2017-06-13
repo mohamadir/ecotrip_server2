@@ -35,7 +35,7 @@ block content
                   for attraction in attractions
                     tr
                       td
-                        a(href="")= attraction.name
+                        a(href="/agent/attraction/"+ attraction.id +"/edit")= attraction.name
                       td= attraction.type
                       td= attraction.groups
                       td= attraction.city

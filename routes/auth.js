@@ -158,17 +158,17 @@ function isAdmin(req, res, next){
 }
 
 // New Admin Temp
+/*
+router.get('/admin/register', function(req, res){
+  var user = new User;
+  user.email = "hosen@admin.com";
+  user.password = user.generateHash("admin123");
+  user.role = "admin";
 
-// router.get('/admin/register', function(req, res){
-//   var user = new User;
-//   user.email = "admin@admin.com";
-//   user.password = user.generateHash("admin123");
-//   user.role = "admin";
-
-//   user.save(function(err){
-//     if(err) throw err;
-//     res.redirect('/auth/login/admin');
-//   });
-// });
+  user.save(function(err){
+    if(err) throw err;
+    res.redirect('/auth/login/admin');
+  });
+});*/
 
 module.exports = router;

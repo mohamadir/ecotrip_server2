@@ -1,0 +1,147 @@
+extends ./adminlayout
+block content
+  #page-wrapper
+    .container-fluid
+      // Page Heading
+      .row
+        .col-lg-12
+          h1.page-header
+            | Dashboard 
+            small Eco Trip Admin
+          
+
+      // /.row
+      .row
+        .col-lg-3.col-md-6
+          .panel.panel-primary
+            .panel-heading
+              .row
+                .col-xs-3
+                  i.fa.fa-building.fa-5x
+                .col-xs-9.text-right
+                  .huge= companyCount
+                  div Companies
+            a(href='/admin/company')
+              .panel-footer
+                span.pull-left View Details
+                span.pull-right
+                  i.fa.fa-arrow-circle-right
+                .clearfix
+        .col-lg-3.col-md-6
+          .panel.panel-green
+            .panel-heading
+              .row
+                .col-xs-3
+                  i.fa.fa-suitcase.fa-5x
+                .col-xs-9.text-right
+                  .huge= attractionCount
+                  div Attraction
+            a(href='#')
+              .panel-footer
+                span.pull-left View Details
+                span.pull-right
+                  i.fa.fa-arrow-circle-right
+                .clearfix
+        .col-lg-3.col-md-6
+          .panel.panel-yellow
+            .panel-heading
+              .row
+                .col-xs-3
+                  i.fa.fa-eye.fa-5x
+                .col-xs-9.text-right
+                  .huge 50
+                  div Views
+            a(href='#')
+              .panel-footer
+                span.pull-left View Details
+                span.pull-right
+                  i.fa.fa-arrow-circle-right
+                .clearfix
+        .col-lg-3.col-md-6
+          .panel.panel-red
+            .panel-heading
+              .row
+                .col-xs-3
+                  i.fa.fa-support.fa-5x
+                .col-xs-9.text-right
+                  .huge 13
+                  div Support Tickets!
+            a(href='#')
+              .panel-footer
+                span.pull-left View Details
+                span.pull-right
+                  i.fa.fa-arrow-circle-right
+                .clearfix
+    
+      // /.row
+      .row
+        .col-lg-8
+          .panel.panel-default
+            .panel-heading
+              h3.panel-title
+                i.fa.fa-clock-o.fa-fw
+                |  Tasks Panel
+            .panel-body
+              .list-group
+                a.list-group-item(href='#')
+                  span.badge one days ago
+                  i.fa.fa-fw.fa-calendar
+                  |  Calendar updated
+                a.list-group-item(href='#')
+                  span.badge two days ago
+                  i.fa.fa-fw.fa-comment
+                  |  Commented on a post
+                a.list-group-item(href='#')
+                  span.badge two days ago
+                  i.fa.fa-fw.fa-truck
+                  |  update hotel and attraction 
+                a.list-group-item(href='#')
+                  span.badge two days ago
+                  i.fa.fa-fw.fa-user
+                  |  A new user has been added
+              .text-right
+        .col-lg-4
+          .panel.panel-default
+            .panel-heading
+              h3.panel-title
+                i.fa.fa-money.fa-fw
+                |  Attractions
+            .panel-body
+              .table-responsive
+                table.table.table-bordered.table-hover.table-striped
+                  thead
+                    tr
+                      th Attractions
+                      th  Date
+                      th  Time
+                      th Amount (IL)
+                  tbody
+                    tr
+                      td swming
+                      td 10/12/2017
+                      td 3:29 PM
+                      td 70
+                    tr
+                      td football
+                      td 10/12/2017
+                      td 3:20 PM
+                      td 65
+                    tr
+                      td pintbool
+                      td 10/12/2017
+                      td 3:03 PM
+                      td 80
+                    tr
+                      td fire
+                      td 10/12/2017
+                      td 3:00 PM
+                      td 90
+                    tr
+                      td playstion
+                      td 10/12/2017
+                      td 2:49 PM
+                      td 80
+      // /.row
+    // /.container-fluid
+  // /#page-wrapper
+// /#wrapper

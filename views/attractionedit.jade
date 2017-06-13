@@ -1,7 +1,13 @@
 extends layout
 
 block content
-  form(method="post" action="/attraction/:id/edit" enctype="multipart/form-data")
+  .container
+    .row
+      .col-md-8.col-md-offset-2
+        
+        form(method="post" action="/agent/update")
+
+
           .form-group
             // Full Name
             label.control-label(for='full_name_id') שם
@@ -10,7 +16,7 @@ block content
           .form-group
             // City
             label.control-label(for='city_id') סוג
-            select#state_id.form-control(name = 'type')
+            select#state_id.form-control(name = 'type',value = attraction.type)
               option(value='אטרקציות ימיות') אטרקציות ימיות
               option(value='גני חיות / פינות ליטוף')  גני חיות / פינות ליטוף
               option(value='פארק משחקים')  פארק משחקים
@@ -28,18 +34,18 @@ block content
 
           .form-group
             // City
-            label.control-label(for='city_id') פרטים על האטרקציה
-            textarea.form-control(name='details')
+            label.control-label(for='textarea') פרטים על האטרקציה
+            textarea.form-control(id="textarea" name='details' data-value=attraction.details)
 
           .form-group
             // City
             label.control-label(for='city_id') עיר
-            input#city_id.form-control(type='text', name='city', placeholder='city')
+            input#city_id.form-control(type='text', name='city', placeholder='city', value = attraction.city)
 
           .form-group
             // State Button
             label.control-label(for='area_id') איזור
-            select#state_id.form-control(name = 'area')
+            select#state_id.form-control(name = 'area', value = attraction.area)
               option(value='חרמון,גולן ואצבע הגליל') חרמון,גולן ואצבע הגליל
               option(value='גליל עליון וגליל מערבי') גליל עליון וגליל מערבי
               option(value='גליל תחתון, עמקים וגלבוע') גליל תחתון, עמקים וגלבוע
@@ -55,12 +61,12 @@ block content
           .form-group
             // Full Name
             label.control-label(for='full_name_id') משך זמן
-            input#full_name_id.form-control(type='number', name='time', placeholder='Time Atraction')
+            input#full_name_id.form-control(type='number', name='time', placeholder='Time Atraction', value = attraction.time)
 
           .form-group
             label.control-label קבוצה
             br
-            select#groups_multiselect(multiple="multiple", name='groups')
+            select#groups_multiselect(multiple="multiple", name='groups', value = attraction.groups)
               option(value='אתגרי') אתגרי
               option(value='סיורים')  סיורים
               option(value='פתוח בשבת')  פתוח בשבת
@@ -73,20 +79,29 @@ block content
 
           .form-group
             label.control-label מחיר
-            input#price_id.form-control(type='number', name='price')
+            input#price_id.form-control(type='number', name='price', value = attraction.price)
 
           .form-group
             label.control-label טלפון
-            input#price_id.form-control(type='number', name='phone')
+            input#price_id.form-control(type='number', name='phone', value = attraction.phone)
 
           .form-group
             label.custom-file
-            input#file.custom-file-input(type='file', name="images" multiple)
+            input#file.custom-file-input(type='file', name="images" multiple, value = attraction.images)
             span.custom-file-control
 
           input(type="hidden" value="#{company}" name="company")
+          input(type="hidden" value=attraction._id name="attraction_id")
+
 
           br
           .form-group
             // Submit Button
-            button.btn.btn-primary(type='submit') הוספה
+            button.btn.btn-primary(type='submit') עדכון
+
+  script.
+    var textareaValue = document.getElementById("textarea").getAttribute('data-value');
+    console.log(textareaValue)
+    document.getElementById("textarea").value = textareaValue
+
+

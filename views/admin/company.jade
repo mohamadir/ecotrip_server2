@@ -1,0 +1,40 @@
+extends ./adminlayout
+block content
+  #page-wrapper
+    .container-fluid
+      // Page Heading
+      .row
+        .col-lg-12
+          h1.page-header
+            | Companies 
+            small Statistics Overview
+          ol.breadcrumb
+            li
+              i.fa.fa-dashboard
+              |  Dashboard
+            li.active
+              i.fa.fa-building
+              |  Companies
+      // /.row
+      .row
+        .col-lg-12
+          table.table
+            thead
+              tr
+                th Company Name 
+                th website
+                th telephone
+                th Actions
+            tbody
+              td                       
+                 for company in companies
+                  tr
+                    td 
+                      a(href="/agent/newattraction")= company.name
+                    td= company.website
+                    td= company.telephone 
+                    td
+                      form(method="post" action="/admin/company/delete")
+                        input(type="hidden" name="id" value=company.id)
+                        button.btn.btn-danger.adminremove(type="submit")
+                          i.fa.fa-trash

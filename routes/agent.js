@@ -33,6 +33,51 @@ router.get('/', isAuthenticated, function(req, res){
 });
 
 
+router.post('/mail', function(req, res){
+
+const mailer = require('sendgrid-mailer').config('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');
+ 
+var name = req.body.InputName;
+var mailosh = req.body.InputEmail;
+var message = req.body.InputMessage; 
+console.log(name+' ======='+mailosh);
+var sg = require('sendgrid')('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');
+var request = sg.emptyRequest({
+  method: 'POST',
+  path: '/v3/mail/send',
+  body: {
+    personalizations: [
+      {
+        to: [
+          {
+            email: 'ecotrip.app@gmail.com'
+          }
+        ],
+        subject: 'Sending with SendGrid is Fun'
+      }
+    ],
+    from: {
+      email: mailosh
+    },
+    content: [
+      {
+        type: 'text/plain',
+        value: message
+      }
+    ]
+  }
+});
+sg.API(request, function (error, response) {
+  if (error) {
+    console.log('Error==================');
+  }
+  console.log('============== SENT ============ ');
+   res.redirect('../');
+});
+ 
+});
+
+
 router.get('/newattraction', isAuthenticated, function(req, res, next){
   res.render('newattraction', {userid: res.locals.user._id});
 });
@@ -57,15 +102,14 @@ router.post('/newattraction', isAuthenticated, upload.array('images', 12),
 
   console.log("===========>>>>> companyid: ", req.body.userid);
 
-  // req.checkBody('name', 'Name is require').notEmpty();
-  // req.checkBody('type', 'Type is require').notEmpty();
-  // req.checkBody('city', 'City is require').notEmpty();
-  // req.checkBody('area', 'Area is require').notEmpty();
-  // req.checkBody('time', 'Time is require').notEmpty();
-  // req.checkBody('details', 'Details is require').notEmpty();
-  // req.checkBody('groups', 'Groups is require').notEmpty();
-  // req.checkBody('price', 'Price is require').notEmpty();
-  //req.checkBody('images', 'Images is require').notEmpty();
+  req.checkBody('name', 'Name is require').notEmpty();
+  req.checkBody('type', 'Type is require').notEmpty();
+  req.checkBody('city', 'City is require').notEmpty();
+  req.checkBody('area', 'Area is require').notEmpty();
+  req.checkBody('time', 'Time is require').notEmpty();
+  req.checkBody('details', 'Details is require').notEmpty();
+  req.checkBody('groups', 'Groups is require').notEmpty();
+  req.checkBody('price', 'Price is require').notEmpty();
 
   var images = [];
   for(var i = 0; i < req.files.length; i++) {
@@ -141,15 +185,53 @@ router.get('/attraction/:id/edit', function(req,res,next){
   var id = req.params.id;
   Attraction.findById(id,function(err,data){
     if (err) throw err;
-    else
-    {
+    
       res.render('attractionedit', {attraction: data});
-    }
-
+    
   });
 
 
 });
+
+router.post('/update', function(req,res){
+
+  console.log("======>>",req.body);
+  
+  var attraction_id = req.body.attraction_id;
+  //var obj = JSON.parse(attraction);
+  
+  console.log("======>>",attraction_id);
+
+  var name = req.body.name;
+  var type = req.body.type;
+  var groups = req.body.groups;
+  var lat = 0;
+  var lon = 0;
+  var city = req.body.city;
+  var phone = req.body.phone;
+  var area = req.body.area;
+  var time = req.body.time;
+  var details = req.body.details;
+  var price = req.body.price;
+
+  Attraction.findByIdAndUpdate(attraction_id,{ $set: {  
+    phone: phone,
+    name: name,
+    type: type,
+    groups: groups,
+    city: city,
+    area: area,
+    time: time,
+    details: details,
+    price: price
+  }}, { new: true },function(err, doc){
+    if (err) 
+      throw err; 
+    res.redirect("/agent");
+  });
+
+});
+
 router.post('/delete', function(req, res){
   var userId = req.body.userId || req.query.userId;
 

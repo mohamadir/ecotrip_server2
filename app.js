@@ -22,7 +22,7 @@ var api = require('./routes/api');
 var auth = require('./routes/auth');
 var admin = require('./routes/admin');
 var agent = require('./routes/agent');
-
+var userauth= require('./routes/userauth');
 var app = express();
 
 // view engine setup
@@ -83,7 +83,7 @@ app.use('/auth', auth);
 app.use('/api', api);
 app.use('/admin', admin);
 app.use('/agent', agent);
-
+app.use('/api/auth',userauth);
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {
   var err = new Error('Not Found');
