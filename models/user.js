@@ -7,10 +7,8 @@ var userSchema = new Schema({
   email:  String,
   password: String,
   role:   String,
-  profile: {
-    firstname: String,
-    lastname: String
-  },
+  firstname: String,
+  lastname: String,
   recomended: [
     {type: String,
   count: Number}]
