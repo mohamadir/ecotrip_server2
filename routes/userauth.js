@@ -35,14 +35,15 @@ router.post('/login',function(req,res,next){
         var email=req.body.email;
         var password=req.body.password;
         console.log(req.body);
-         User.findOne({email: email}, function(err, user){
+         User.findOne({email: email,password: password}, function(err, user){
 
             if(user&& user.role=='user'){
                 console.log('user.password:'+user.password+",req.password:"+req.body.password);
-                if(user.password=password)
+/*                if(user.password=password)
                   res.json({status:'success',user: user});
                 else
-                  res.json({status:'password wrong'});
+                  res.json({status:'password wrong'});*/
+                  res.json({status:'success',user: user});
             }
             else
                 res.json({status:'user not found'});
