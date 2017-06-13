@@ -17,11 +17,8 @@ router.post('/register', function(req, res, next) {
       user.email = req.body.email;
       user.password =req.body.password;
       user.role = "user";
-      var profile={
-          userName: req.body.userName,
-          lastName: req.body.lastName
-      }
-      user.profile=profile;
+      user.profile.firstaname=req.body.firstName;
+      user.profile.lastname=req.body.lastName;
       user.save(function(err){
         if(err){ 
             consol.log(err);
