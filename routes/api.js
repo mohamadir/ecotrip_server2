@@ -5,35 +5,43 @@ var Attraction = require('../models/attraction');
 var User=require('../models/user');
 /* GET users listing. */
 router.post('/attraction/getall', function(req, res, next) {
+  var id=req.body.userId;
   Attraction.find({}, function(err, data){
     if(err) throw err;
-    res.json(data);
+    User.findByIdAndUpdate(id ,{ $inc: { searchcount: 1 } },function(err,data2){
+                if(err)
+                  throw err;
+                console.log("success");
+                    res.json(data);
+
   })
 });
 
 router.get('/attraction/getall2', function(req, res, next) {
+  var id=req.body.userId;
   Attraction.find({}, function(err, data){
     if(err) throw err;
-     User.findByIdAndUpdate(id ,{ $inc: { searchcount: 1 } },function(err,data){
+     User.findByIdAndUpdate(id ,{ $inc: { searchcount: 1 } },function(err,data2){
                 if(err)
                   throw err;
                 console.log("success");
                 
-                    res.json(result);
+                    res.json(data);
               });
   }).sort({engoyrating:-1});
 });
 
 router.post('/attraction/search', function(req, res, next) {
+  var id=req.body.userId;
   	Attraction.find({},function(err,data){
   		    if(err) throw err;
           
-  		 User.findByIdAndUpdate(id ,{ $inc: { searchcount: 1 } },function(err,data){
+  		 User.findByIdAndUpdate(id ,{ $inc: { searchcount: 1 } },function(err,data2){
                 if(err)
                   throw err;
                 console.log("success");
                 
-                    res.json(result);
+                    res.json(data);
               });
   	});
 });
@@ -139,6 +147,7 @@ router.post('/attraction/bestpath',function(req,res,next){
     let type=req.body.type;
     let path=req.body.path;
     let groups=req.body.groups;
+    let id=req.body.userId;
     let where = {}
     if(type.length>0)
       where["type"]= { $in: type };
@@ -176,7 +185,7 @@ router.post('/attraction/bestpath',function(req,res,next){
                   throw err;
                 console.log("success");
                 
-                    res.json(result);
+                    res.json(finalResult);
               });;
     });
 
