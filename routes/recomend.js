@@ -7,10 +7,13 @@ router.post('/get_recomended',function(req,res,next){
 
     console.log('---------hi');
     var id=req.body.id;
-    User.findByIdAndUpdate(id, { $inc: { "recomended.count" : 1 } },function(err,data){
+    var type=req.body.type;
+    console.log(id);
+    User.findByIdAndUpdate(id ,{ $inc: { searchcount: 1 } },function(err,data){
                 if(err)
                   throw err;
                 console.log("success");
+                
                 res.json(data);
               });
 /*
