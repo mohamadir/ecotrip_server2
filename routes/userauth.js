@@ -46,7 +46,7 @@ router.post('/login',function(req,res,next){
                   res.json({status:'success',user: user});
             }
             else
-                res.json({status:'user not found'});
+                res.json({status:'wron details'});
          });
 });
 

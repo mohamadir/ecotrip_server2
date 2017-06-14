@@ -11,7 +11,7 @@ var userSchema = new Schema({
   lastName: String,
   recomended: [
     {type: String,
-  count: Number}]
+  count: { type: Number, default: 0 }}]
 });
 
 userSchema.methods.generateHash = function(password) {

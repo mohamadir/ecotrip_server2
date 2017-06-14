@@ -23,6 +23,7 @@ var auth = require('./routes/auth');
 var admin = require('./routes/admin');
 var agent = require('./routes/agent');
 var userauth= require('./routes/userauth');
+var recomend= require('./routes/recomend');
 var app = express();
 
 // view engine setup
@@ -84,6 +85,7 @@ app.use('/api', api);
 app.use('/admin', admin);
 app.use('/agent', agent);
 app.use('/api/auth',userauth);
+app.use('/api/recomend',recomend);
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {
   var err = new Error('Not Found');
