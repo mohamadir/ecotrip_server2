@@ -9,7 +9,7 @@ var userSchema = new Schema({
   role:   String,
   firstName: String,
   lastName: String,
-  searchnum: {type: Number, default: 0},
+  searchnum: Number,
   recomended: [
     {type: {type: String,default: "אטרקציה"},
   count: { type: Number, default: 0 }}]

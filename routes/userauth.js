@@ -19,6 +19,7 @@ router.post('/register', function(req, res, next) {
       user.role = "user";
       user.firstName=req.body.firstName;
       user.lastName=req.body.lastName;
+      user.searchnum=0;
       user.save(function(err){
         if(err){ 
             consol.log(err);
