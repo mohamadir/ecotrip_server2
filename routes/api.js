@@ -14,7 +14,8 @@ router.post('/attraction/getall', function(req, res, next) {
                 console.log("success");
                     res.json(data);
 
-  })
+  });
+});
 });
 
 router.get('/attraction/getall2', function(req, res, next) {
@@ -181,14 +182,11 @@ router.post('/attraction/bestpath',function(req,res,next){
 
         });
              User.findByIdAndUpdate(id ,{ $inc: { searchnum: 1 } },function(err,data){
-                if(err)
-                  throw err;
-                console.log("success");
-                
+                if(err) throw err;
+                console.log("success");  
                     res.json(finalResult);
-              });;
+              });
     });
-
 });
 
 module.exports = router;
