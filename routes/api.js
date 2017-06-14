@@ -8,7 +8,7 @@ router.post('/attraction/getall', function(req, res, next) {
   var id=req.body.userId;
   Attraction.find({}, function(err, data){
     if(err) throw err;
-    User.findByIdAndUpdate(id ,{ $inc: { searchcount: 1 } },function(err,data2){
+    User.findByIdAndUpdate(id ,{ $inc: { searchnum: 1 } },function(err,data2){
                 if(err)
                   throw err;
                 console.log("success");
@@ -21,7 +21,7 @@ router.get('/attraction/getall2', function(req, res, next) {
   var id=req.body.userId;
   Attraction.find({}, function(err, data){
     if(err) throw err;
-     User.findByIdAndUpdate(id ,{ $inc: { searchcount: 1 } },function(err,data2){
+     User.findByIdAndUpdate(id ,{ $inc: { searchnum: 1 } },function(err,data2){
                 if(err)
                   throw err;
                 console.log("success");
@@ -36,7 +36,7 @@ router.post('/attraction/search', function(req, res, next) {
   	Attraction.find({},function(err,data){
   		    if(err) throw err;
           
-  		 User.findByIdAndUpdate(id ,{ $inc: { searchcount: 1 } },function(err,data2){
+  		 User.findByIdAndUpdate(id ,{ $inc: { searchnum: 1 } },function(err,data2){
                 if(err)
                   throw err;
                 console.log("success");
@@ -64,7 +64,7 @@ router.post('/attraction/favorite', function(req, res, next) {
   console.log("Ids:",ids);
 
   Attraction.find({ '_id': { $in: ids }}, function(err, result){ 
-     User.findByIdAndUpdate(id ,{ $inc: { searchcount: 1 } },function(err,data){
+     User.findByIdAndUpdate(id ,{ $inc: { searchnum: 1 } },function(err,data){
                 if(err)
                   throw err;
                 console.log("success");
@@ -97,7 +97,7 @@ router.post('/attraction/special_attractions', function(req, res, next) {
 
       Attraction.find(where, function(err, result){ 
                     console.log("hi"+result);
-           User.findByIdAndUpdate(id ,{ $inc: { searchcount: 1 } },function(err,data){
+           User.findByIdAndUpdate(id ,{ $inc: { searchnum: 1 } },function(err,data){
                 if(err)
                   throw err;
                 console.log("success");
@@ -180,7 +180,7 @@ router.post('/attraction/bestpath',function(req,res,next){
                finalResult.push(resu[ind]);
 
         });
-             User.findByIdAndUpdate(id ,{ $inc: { searchcount: 1 } },function(err,data){
+             User.findByIdAndUpdate(id ,{ $inc: { searchnum: 1 } },function(err,data){
                 if(err)
                   throw err;
                 console.log("success");
