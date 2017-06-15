@@ -106,9 +106,7 @@ router.post('/attraction/special_attractions', function(req, res, next) {
        where["area"]= area;
     if(path)
        where["time"]= path;
-    let where2={};
-      where2["type"]= { $in: type };
-      
+ 
     console.log(where);
 
       Attraction.find(where, function(err, result){ 
