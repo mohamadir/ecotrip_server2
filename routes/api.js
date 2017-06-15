@@ -111,13 +111,14 @@ router.post('/attraction/special_attractions', function(req, res, next) {
 
       Attraction.find(where, function(err, result){ 
                     console.log("hi"+result);
-           User.findByIdAndUpdate("593faa59549b7b0020afca94" ,{ $inc: { searchnum: 1 } },function(err,data){
-                if(err)
-                  throw err;
-                console.log("success");
-                res.json(result);
+          //  User.findByIdAndUpdate(id ,{ $inc: { searchnum: 1 } },function(err,data){
+          //       if(err)
+          //         throw err;
+          //       console.log("success");
                   
-            });
+          //   });
+                            res.json(result);
+
                          }).sort({engoyrating:-1}).limit(8);
 
 });
