@@ -85,7 +85,7 @@ router.post('/attraction/special_attractions', function(req, res, next) {
 
       Attraction.find(where, function(err, result){ 
                     console.log("hi"+result);
-           User.findByIdAndUpdate(id ,{ $inc: { searchnum: 1 }},function(err,data){
+           User.findByIdAndUpdate(id ,{ $inc: { searchnum: 1 } },function(err,data){
                 if(err)
                   throw err;
                 console.log("success");
@@ -144,6 +144,8 @@ router.post('/attraction/bestpath',function(req,res,next){
        where["area"]= area;
     if(path)
        where["time"]= path;
+    let where2={};
+      wher2["type"]= { $in: type };
     Attraction.find(where, function(err, resu){ 
         console.log(types+"-------");
         if (err) throw err;
@@ -167,14 +169,37 @@ router.post('/attraction/bestpath',function(req,res,next){
                finalResult.push(resu[ind]);
 
         });
-             User.findByIdAndUpdate(id ,{ $inc: { searchnum: 1 } },function(err,data){
+             User.findByIdAndUpdate(id ,wher2,{ $inc: { searchnum: 1 },$set: {recomended: updateRecomended(type)} },function(err,data){
                 if(err) throw err;
                 console.log("success");  
                     res.json(finalResult);
               });
     });
 });
+var updateRecomended=function(type,recomended){
+  var newRecomended=[{}];
+    for (var i = 0; i < type.length; i++) {
+      var ifExist=false;
+      for(var j=0;j<recomended.length;j++)
+      {
+          if(type[i]==recomended[j])
+          {
+            var newR={type:type[j],count: recomended[j].count+1};
+            newRecomended.push(newR);
+            ifExist=true;
+          }
+          if(ifExist)
+            break;
+          else
+            {
+              var newR={type:type[j],count: 0};
+              newRecomended.push(newR);
 
+            }
+      }
+  }
+return newRecomended;
+}
 module.exports = router;
 
 
