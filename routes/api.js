@@ -71,7 +71,6 @@ router.post('/attraction/special_attractions', function(req, res, next) {
     let path=req.body.path;
     let groups=req.body.groups;
     let id=req.body.UserId;
-    let reco=req.body.recomended;
     let where = {}
     if(type.length>0)
       where["type"]= { $in: type };
