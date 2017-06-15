@@ -21,12 +21,8 @@ router.get('/attraction/getall2', function(req, res, next) {
   var id=req.body.UserId;
   Attraction.find({}, function(err, data){
     if(err) throw err;
-     User.findByIdAndUpdate(id ,{ $inc: { searchnum: 1 } },function(err,data2){
-                if(err)
-                  throw err;
-                console.log("success");
-                    res.render(data);
-              });
+        res.render(data);
+
   }).sort({engoyrating:-1});
 });
 
