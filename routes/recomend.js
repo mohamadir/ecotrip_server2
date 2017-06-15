@@ -13,7 +13,6 @@ router.post('/get_recomended',function(req,res,next){
                 if(err)
                   throw err;
                 console.log("success");
-                
                 res.json(data);
               });
 /*
