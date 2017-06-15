@@ -8,10 +8,13 @@ router.post('/attraction/getall', function(req, res, next) {
   var id=req.body.UserId;
   Attraction.find({}, function(err, data){
     if(err) throw err;
-
-      res.json(data);
-
-});
+     User.findByIdAndUpdate(id ,{ $inc: { searchnum: 1 } },function(err,data2){
+                if(err)
+                  throw err;
+                console.log("success");
+                    res.send("id:  "+id);
+              });
+  }).sort({engoyrating:-1});
 });
 
 router.get('/attraction/getall2', function(req, res, next) {
@@ -22,8 +25,7 @@ router.get('/attraction/getall2', function(req, res, next) {
                 if(err)
                   throw err;
                 console.log("success");
-                
-                    res.json(data);
+                    res.send("id:  "+id);
               });
   }).sort({engoyrating:-1});
 });
@@ -37,7 +39,7 @@ router.post('/attraction/search', function(req, res, next) {
                 if(err)
                   throw err;
                 console.log("success");
-                    res.json(data);
+                    res.send("id:  "+JSON.stringify(data));
               });
   	});
 });
@@ -78,7 +80,7 @@ router.post('/attraction/special_attractions', function(req, res, next) {
     let type=req.body.type;
     let path=req.body.path;
     let groups=req.body.groups;
-    let ip=req.body.UserId;
+    let id=req.body.UserId;
     let where = {}
     if(type.length>0)
       where["type"]= { $in: type };
@@ -99,7 +101,8 @@ router.post('/attraction/special_attractions', function(req, res, next) {
                 console.log("success");
                 
                     res.json(result);
-              });
+                  
+            });
                          }).sort({engoyrating:-1}).limit(8);
 
 });
@@ -145,14 +148,14 @@ router.post('/attraction/bestpath',function(req,res,next){
     let groups=req.body.groups;
     let id=req.body.UserId;
     let where = {}
-    if(type.length>0)
+    /*if(type.length>0)
       where["type"]= { $in: type };
     if(groups.length>0)
        where["groups"]= {$in: groups};
     if(area)
        where["area"]= area;
     if(path)
-       where["time"]= path;
+       where["time"]= path;*/
     Attraction.find(where, function(err, resu){ 
         console.log(types+"-------");
         if (err) throw err;
