@@ -25,7 +25,7 @@ router.get('/attraction/getall2', function(req, res, next) {
                 if(err)
                   throw err;
                 console.log("success");
-                    res.send("id:  "+id);
+                    res.render(data);
               });
   }).sort({engoyrating:-1});
 });
@@ -62,13 +62,8 @@ router.post('/attraction/favorite', function(req, res, next) {
   console.log("Ids:",ids);
 
   Attraction.find({ '_id': { $in: ids }}, function(err, result){ 
-     User.findByIdAndUpdate(id ,{ $inc: { searchnum: 1 } },function(err,data){
-                if(err)
-                  throw err;
-                console.log("success");
-                
+                   if(err) throw err;
                     res.json(result);
-              });
   }); 
 });
 
@@ -99,8 +94,7 @@ router.post('/attraction/special_attractions', function(req, res, next) {
                 if(err)
                   throw err;
                 console.log("success");
-                
-                    res.json(result);
+                res.json(result);
                   
             });
                          }).sort({engoyrating:-1}).limit(8);
