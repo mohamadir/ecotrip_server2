@@ -119,7 +119,6 @@ router.post('/attraction/set_rating',function(req,res,next){
 router.post('/attraction/set_engoyrating',function(req,res,next){
       let er=req.body.rateAvg;
       let id=req.body.id;
-      console.log(er +","+id);
       Attraction.findByIdAndUpdate(id,{$set:{"engoyrating":er}},function(err,data){
                 if(err)
                   throw err;
@@ -137,14 +136,14 @@ router.post('/attraction/bestpath',function(req,res,next){
     let groups=req.body.groups;
     let id=req.body.UserId;
     let where = {}
-    /*if(type.length>0)
+    if(type.length>0)
       where["type"]= { $in: type };
     if(groups.length>0)
        where["groups"]= {$in: groups};
     if(area)
        where["area"]= area;
     if(path)
-       where["time"]= path;*/
+       where["time"]= path;
     Attraction.find(where, function(err, resu){ 
         console.log(types+"-------");
         if (err) throw err;
