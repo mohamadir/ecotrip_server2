@@ -16,6 +16,7 @@ router.post('/attraction/getall', function(req, res, next) {
               });
   }).sort({engoyrating:-1});
 });
+
 router.post('/attraction/setreview', function(req, res, next) {
     var review=req.body.review;
     var date=req.body.date;
@@ -26,6 +27,15 @@ router.post('/attraction/setreview', function(req, res, next) {
         {$push: {"reviews": reviewObject}},
         {safe: true, upsert: true},
         function(err, data) {
+      if(err) throw err;
+        res.json(data);
+        }
+);
+});
+
+router.post('/attraction/getreviews', function(req, res, next) {
+    var id=req.body.id;
+    Attraction.findById(id,function(err, data) {
       if(err) throw err;
         res.json(data);
         }
