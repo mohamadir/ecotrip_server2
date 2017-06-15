@@ -19,10 +19,11 @@ router.post('/attraction/getall', function(req, res, next) {
 router.post('/attraction/setreview', function(req, res, next) {
     var review=req.body.review;
     var date=req.body.date;
+    var reviewObject={review:review,date: date};
     var id=req.body.id;
     Attraction.findByIdAndUpdate(
     id,
-        {$push: {"reviews": review}},
+        {$push: {"reviews": reviewObject}},
         {safe: true, upsert: true},
         function(err, data) {
       if(err) throw err;
@@ -30,7 +31,7 @@ router.post('/attraction/setreview', function(req, res, next) {
         }
 );
 });
-router.get('/attraction/getall2', function(req, res, next) {
+router.get('/attraction/getall2', function(req, res, next) {  
   //var id=req.body.UserId;
   Attraction.find({}, function(err, data){
     if(err) throw err;
