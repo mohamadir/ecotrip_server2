@@ -24,8 +24,9 @@ router.post('/attraction/setreview', function(req, res, next) {
     id,
         {$push: {"reviews": review}},
         {safe: true, upsert: true},
-        function(err, model) {
+        function(err, data) {
             console.log(err);
+            res.json(data);
         }
 );
 });
