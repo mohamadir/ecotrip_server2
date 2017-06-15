@@ -19,6 +19,7 @@ var attSchema = new Schema({
   engoyrating: Number,
   rating: [Number],
   price: Number,
+  reviews: [{review: String,date: String}],
   images: [{
     src: String,
     base64: String

@@ -16,7 +16,19 @@ router.post('/attraction/getall', function(req, res, next) {
               });
   }).sort({engoyrating:-1});
 });
-
+router.post('/attraction/setreview', function(req, res, next) {
+    var review=req.body.review;
+    var date=req.body.date;
+    var id=req.body.id;
+    Attraction.findByIdAndUpdate(
+    id,
+        {$push: {"reviews": review}},
+        {safe: true, upsert: true},
+        function(err, model) {
+            console.log(err);
+        }
+);
+});
 router.get('/attraction/getall2', function(req, res, next) {
   var id=req.body.UserId;
   Attraction.find({}, function(err, data){
@@ -71,7 +83,7 @@ router.post('/attraction/special_attractions', function(req, res, next) {
     let path=req.body.path;
     let groups=req.body.groups;
     let id=req.body.UserId;
-    let where = {}
+    let where = {};
     if(type.length>0)
       where["type"]= { $in: type };
     if(groups.length>0)
@@ -80,7 +92,9 @@ router.post('/attraction/special_attractions', function(req, res, next) {
        where["area"]= area;
     if(path)
        where["time"]= path;
-
+    let where2={};
+      where2["type"]= { $in: type };
+      
     console.log(where);
 
       Attraction.find(where, function(err, result){ 
@@ -89,6 +103,7 @@ router.post('/attraction/special_attractions', function(req, res, next) {
                 if(err)
                   throw err;
                 console.log("success");
+                User.find({id,where2},)
                 res.json(result);
                   
             });
@@ -144,8 +159,6 @@ router.post('/attraction/bestpath',function(req,res,next){
        where["area"]= area;
     if(path)
        where["time"]= path;
-    let where2={};
-      wher2["type"]= { $in: type };
     Attraction.find(where, function(err, resu){ 
         console.log(types+"-------");
         if (err) throw err;
@@ -169,7 +182,7 @@ router.post('/attraction/bestpath',function(req,res,next){
                finalResult.push(resu[ind]);
 
         });
-             User.findByIdAndUpdate(id ,wher2,{ $inc: { searchnum: 1 },$set: {recomended: updateRecomended(type)} },function(err,data){
+             User.findByIdAndUpdate(id ,{ $inc: { searchnum: 1 }, },function(err,data){
                 if(err) throw err;
                 console.log("success");  
                     res.json(finalResult);
@@ -200,6 +213,8 @@ var updateRecomended=function(type,recomended){
   }
 return newRecomended;
 }
+
+
 module.exports = router;
 
 
