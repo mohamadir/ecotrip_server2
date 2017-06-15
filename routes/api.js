@@ -25,8 +25,8 @@ router.post('/attraction/setreview', function(req, res, next) {
         {$push: {"reviews": review}},
         {safe: true, upsert: true},
         function(err, data) {
-            console.log(err);
-            res.json(data);
+      if(err) throw err;
+        res.json(data);
         }
 );
 });
@@ -104,7 +104,6 @@ router.post('/attraction/special_attractions', function(req, res, next) {
                 if(err)
                   throw err;
                 console.log("success");
-                User.find({id,where2},)
                 res.json(result);
                   
             });
