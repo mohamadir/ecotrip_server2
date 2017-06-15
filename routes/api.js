@@ -111,7 +111,7 @@ router.post('/attraction/special_attractions', function(req, res, next) {
 
       Attraction.find(where, function(err, result){ 
                     console.log("hi"+result);
-           User.findByIdAndUpdate(id ,{ $inc: { searchnum: 1 } },function(err,data){
+           User.findByIdAndUpdate("593faa59549b7b0020afca94" ,{ $inc: { searchnum: 1 } },function(err,data){
                 if(err)
                   throw err;
                 console.log("success");
@@ -134,7 +134,7 @@ router.post('/attraction/set_rating',function(req,res,next){
 
       });
       */
-            Attraction.findByIdAndUpdate(id,{"$push":{"rating":rate}},{"new":true,"upsert":true},function(err,data){
+            Attraction.findByIdAndUpdate("id",{"$push":{"rating":rate}},{"new":true,"upsert":true},function(err,data){
                 if(err)
                   throw err;
                 res.json(data);
