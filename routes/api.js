@@ -28,7 +28,9 @@ router.post('/attraction/setreview', function(req, res, next) {
         {safe: true, upsert: true},
         function(err, data) {
       if(err) throw err;
-        res.json(data);
+        Attraction.findById(id,function(err,data2){
+          res.json(data2);
+        });
         }
 );
 });
