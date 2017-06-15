@@ -21,8 +21,7 @@ router.get('/attraction/getall2', function(req, res, next) {
   var id=req.body.UserId;
   Attraction.find({}, function(err, data){
     if(err) throw err;
-        res.render(data);
-
+        res.json(data);
   }).sort({engoyrating:-1});
 });
 
