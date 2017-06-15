@@ -96,7 +96,7 @@ router.post('/attraction/special_attractions', function(req, res, next) {
     let type=req.body.type;
     let path=req.body.path;
     let groups=req.body.groups;
-    let id=req.body.UserId;
+   // let id=req.body.UserId;
     let where = {};
     if(type.length>0)
       where["type"]= { $in: type };
@@ -111,14 +111,13 @@ router.post('/attraction/special_attractions', function(req, res, next) {
 
       Attraction.find(where, function(err, result){ 
                     console.log("hi"+result);
-          //  User.findByIdAndUpdate(id ,{ $inc: { searchnum: 1 } },function(err,data){
-          //       if(err)
-          //         throw err;
-          //       console.log("success");
+         /*  User.findByIdAndUpdate(id ,{ $inc: { searchnum: 1 } },function(err,data){
+                if(err)
+                  throw err;
+                console.log("success");
                   
-          //   });
+            });*/
                             res.json(result);
-
                          }).sort({engoyrating:-1}).limit(8);
 
 });
