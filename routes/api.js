@@ -31,7 +31,7 @@ router.post('/attraction/setreview', function(req, res, next) {
 );
 });
 router.get('/attraction/getall2', function(req, res, next) {
-  var id=req.body.UserId;
+  //var id=req.body.UserId;
   Attraction.find({}, function(err, data){
     if(err) throw err;
         res.json(data);
