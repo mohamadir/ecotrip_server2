@@ -58,9 +58,9 @@ router.post('/attraction/search', function(req, res, next) {
           
   		 User.findByIdAndUpdate(id ,{ $inc: { searchnum: 1 } },function(err,data2){
                 if(err)
-                  throw err;
-                console.log("success");
-                    res.send("id:  "+JSON.stringify(data));
+                  res.json(data);
+                else
+                    res.json(data);
               });
   	});
 });
@@ -90,6 +90,7 @@ router.post('/attraction/favorite', function(req, res, next) {
 
 
 router.post('/attraction/special_attractions', function(req, res, next) {
+  console.log(req.body.userId);
 		let finalResult = {};
 		let types=req.body.type;
     let area=req.body.area;
@@ -107,14 +108,13 @@ router.post('/attraction/special_attractions', function(req, res, next) {
     if(path)
        where["time"]= path;
  
-    console.log(where);
 
       Attraction.find(where, function(err, result){ 
                     console.log("hi"+result);
            User.findByIdAndUpdate(id ,{ $inc: { searchnum: 1 } },function(err,data){
                 if(err)
-                  throw err;
-                console.log("success");
+                  res.json(result);
+              else
                 res.json(result);
                   
             });
@@ -194,8 +194,8 @@ router.post('/attraction/bestpath',function(req,res,next){
 
         });
              User.findByIdAndUpdate(id ,{ $inc: { searchnum: 1 }, },function(err,data){
-                if(err) throw err;
-                console.log("success");  
+                if(err) res.json(finalResult);
+                else 
                     res.json(finalResult);
               });
     });
