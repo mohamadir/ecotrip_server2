@@ -127,14 +127,7 @@ router.post('/attraction/special_attractions', function(req, res, next) {
 router.post('/attraction/set_rating',function(req,res,next){
       let id=req.body.id;
       let rate=req.body.erating;
-     /* Attraction.findById(id, function(err,result){
-        let rating= result.rating;
-        rating.push(rate);
-        Attraction.update({})
-
-      });
-      */
-            Attraction.findByIdAndUpdate("id",{"$push":{"rating":rate}},{"new":true,"upsert":true},function(err,data){
+            Attraction.findByIdAndUpdate(id,{"$push":{"rating":rate}},{"new":true,"upsert":true},function(err,data){
                 if(err)
                   throw err;
                 res.json(data);
