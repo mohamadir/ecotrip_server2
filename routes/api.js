@@ -4,6 +4,8 @@ var Attraction = require('../models/attraction');
 var User=require('../models/user');
 var weather = require('weather-js');
 
+
+//********************************************   weather routes     ***************************************8 */
 router.post('/attraction/weather',function(req,res,next){
       
       var location= req.body.location;
@@ -15,6 +17,29 @@ router.post('/attraction/weather',function(req,res,next){
         res.json(result);
 });
 });
+router.post('/attraction/weather/one',function(req,res,next){
+      
+     Attraction.find({type: {$in:["אטרקציות ימיות","אטרקציות בטבע","ספורט ימי/צלילה / שיט"]}}
+     , function(err, result){ 
+          if (err) throw err;
+          res.json(result); 
+});
+});
+router.post('/attraction/weather/two',function(req,res,next){
+      
+      Attraction.find({type: {$in:["גני חיות / פינות ליטוף","טרקטרונים / קטרינג / רייזרים","סיורים"]}}, function(err, result){ 
+          if (err) throw err;
+          res.json(result);
+});
+});
+router.post('/attraction/weather/three',function(req,res,next){
+      
+      Attraction.find({type: {$in:["גני חיות / פינות ליטוף","טרקטרונים / קטרינג / רייזרים","סיורים"]}}, function(err, result){ 
+          if (err) throw err;
+          res.json(result);
+});
+});
+
 
 /* GET users listing. */
 router.post('/attraction/getall', function(req, res, next) {
