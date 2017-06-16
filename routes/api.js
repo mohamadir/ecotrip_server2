@@ -1,8 +1,21 @@
 var express = require('express');
 var router = express.Router();
-
 var Attraction = require('../models/attraction');
 var User=require('../models/user');
+var weather = require('weather-js');
+
+router.post('/attraction/weather',function(req,res,next){
+      
+      var location= req.body.location;
+      console.log(location);
+      weather.find({search: location, degreeType: 'C'}, function(err, result) {
+        if(err) console.log(err);
+      
+        console.log(JSON.stringify(result, null, 2));
+        res.json(result);
+});
+});
+
 /* GET users listing. */
 router.post('/attraction/getall', function(req, res, next) {
   var id=req.body.UserId;
