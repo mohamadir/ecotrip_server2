@@ -167,7 +167,8 @@ router.post('/attraction/special_attractions', function(req, res, next) {
 
 router.post('/user/getcount',function(req,res,next){
   var id=req.body.UserId;
-  Attraction.findById(id,function(err,data){
+  console.log("id----------", id);
+  User.findById(id,function(err,data){
                 if(err)
                   res.json(data);;
                 res.json(data);
