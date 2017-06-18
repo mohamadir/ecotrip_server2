@@ -136,6 +136,7 @@ router.post('/attraction/special_attractions', function(req, res, next) {
     let path=req.body.path;
     let groups=req.body.groups;
     let id=req.body.UserId;
+    console.log("------------ id :"+id);
     let where = {};
     if(type.length>0)
       where["type"]= { $in: type };
@@ -150,8 +151,11 @@ router.post('/attraction/special_attractions', function(req, res, next) {
       Attraction.find(where, function(err, result){ 
                     console.log("hi"+result);
            User.findByIdAndUpdate(id ,{ $inc: { searchnum: 1 } },function(err,data){
-                if(err)
+                if(err){
+                  console.log(err);
                   res.json(result);
+
+                }
               else
                 res.json(result);
                   
