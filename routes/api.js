@@ -165,7 +165,14 @@ router.post('/attraction/special_attractions', function(req, res, next) {
 });
 
 
-
+router.post('/user/getcount',function(req,res,next){
+  var id=req.body.UserId;
+  Attraction.findById(id,function(err,data){
+                if(err)
+                  res.json(data);;
+                res.json(data);
+            });
+});
 router.post('/attraction/set_rating',function(req,res,next){
       let id=req.body.id;
       let rate=req.body.erating;
