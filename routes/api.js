@@ -19,7 +19,7 @@ router.post('/attraction/weather',function(req,res,next){
 });
 router.post('/attraction/weather/one',function(req,res,next){
       
-     Attraction.find({type: {$in:["אטרקציות ימיות","אטרקציות בטבע","ספורט ימי/צלילה / שיט"]}}
+     Attraction.find({type: {$in:["אטרקציות בטבע","ספורט ימי/צלילה / שיט"]}}
      , function(err, result){ 
           if (err) throw err;
           res.json(result); 
