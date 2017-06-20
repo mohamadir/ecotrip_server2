@@ -14,6 +14,7 @@ var attSchema = new Schema({
   phone: Number,
   area: String,
   time: String,
+  path: String,
   details: String,
   timerating: Number,
   engoyrating: Number,

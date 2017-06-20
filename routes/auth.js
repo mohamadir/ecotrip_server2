@@ -62,15 +62,12 @@ router.post('/register', function(req, res){
   var name = req.body.name;
   var website = req.body.website;
   var telephone = req.body.telephone;
-  var type = req.body.type;
 
   req.checkBody('email', 'Email is require').notEmpty();
   req.checkBody('password', 'Password is require').notEmpty();
   req.checkBody('name', 'Name is require').notEmpty();
   req.checkBody('website', 'Website is require').notEmpty();
   req.checkBody('telephone', 'Telephone is require').notEmpty();
-  req.checkBody('type', 'Type is require').notEmpty();
-
   var errors = req.validationErrors();
 
   User.findOne({email: email}, function(err, user){
@@ -94,7 +91,6 @@ router.post('/register', function(req, res){
         name: name,
         website: website,
         telephone: telephone,
-        type: type,
         userid: user._id
       });
 

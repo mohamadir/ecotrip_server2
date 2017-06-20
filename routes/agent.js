@@ -92,7 +92,7 @@ router.post('/newattraction', isAuthenticated, upload.array('images', 12),
   var city = req.body.city;
   var phone = req.body.phone;
   var area = req.body.area;
-  var time = req.body.time;
+  var path = req.body.path;
   var details = req.body.details;
   var timerating = 0;
   var engoyrating = 0; 
@@ -106,7 +106,7 @@ router.post('/newattraction', isAuthenticated, upload.array('images', 12),
   req.checkBody('type', 'Type is require').notEmpty();
   req.checkBody('city', 'City is require').notEmpty();
   req.checkBody('area', 'Area is require').notEmpty();
-  req.checkBody('time', 'Time is require').notEmpty();
+  req.checkBody('path', 'Attraction Time is require').notEmpty();
   req.checkBody('details', 'Details is require').notEmpty();
   req.checkBody('groups', 'Groups is require').notEmpty();
   req.checkBody('price', 'Price is require').notEmpty();
@@ -141,7 +141,7 @@ router.post('/newattraction', isAuthenticated, upload.array('images', 12),
         city: city,
         phone: phone,
         area: area,
-        time: time,
+        path: path,
         details: details,
         timerating: timerating,
         engoyrating: engoyrating,
@@ -210,7 +210,7 @@ router.post('/update', function(req,res){
   var city = req.body.city;
   var phone = req.body.phone;
   var area = req.body.area;
-  var time = req.body.time;
+  var path = req.body.path;
   var details = req.body.details;
   var price = req.body.price;
 
@@ -221,7 +221,7 @@ router.post('/update', function(req,res){
     groups: groups,
     city: city,
     area: area,
-    time: time,
+    path: path,
     details: details,
     price: price
   }}, { new: true },function(err, doc){

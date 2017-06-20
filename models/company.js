@@ -5,7 +5,6 @@ var companySchema = new Schema({
   name: String,
   website: String,
   telephone: Number,
-  type: String,
   userid: Schema.Types.ObjectId
 });
 

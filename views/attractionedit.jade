@@ -60,8 +60,11 @@ block content
 
           .form-group
             // Full Name
-            label.control-label(for='full_name_id') משך זמן
-            input#full_name_id.form-control(type='number', name='time', placeholder='Time Atraction', value = attraction.time)
+            label.control-label(for='path_id') משך זמן האטרקציה 
+            select#state_id.form-control(name = 'path')
+              option(value='עד שעה' selected="selected") עד שעה
+              option(value='גני חיות / פינות ליטוף')  עד שעתיים
+              option(value='פארק משחקים')  שעתיים פלוס+
 
           .form-group
             label.control-label קבוצה

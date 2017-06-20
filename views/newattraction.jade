@@ -61,9 +61,12 @@ block content
               option(value='דרום הנגב והרי אילת') דרום הנגב והרי אילת
 
           .form-group
-            // Full Name
-            label.control-label(for='full_name_id') משך זמן
-            input#full_name_id.form-control(type='text', name='time', placeholder='Time Atraction')
+            label.control-label(for='path_id') משך זמן האטרקציה
+            select#state_id.form-control(name = 'path')
+              option(value='עד שעה' selected="selected") עד שעה
+              option(value='עד שעתיים')  עד שעתיים
+              option(value='שעתיים פלוס+')  שעתיים פלוס+
+
 
           .form-group
             label.control-label קבוצה

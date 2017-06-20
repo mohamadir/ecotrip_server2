@@ -145,7 +145,7 @@ router.post('/attraction/special_attractions', function(req, res, next) {
     if(area)
        where["area"]= area;
     if(path)
-       where["time"]= path;
+       where["path"]= path;
  
 
       Attraction.find(where, function(err, result){ 
@@ -195,8 +195,15 @@ router.post('/attraction/set_engoyrating',function(req,res,next){
                 res.json(data);
               });
 });
- 
+router.get('/attraction/getpath',function(req,res,next){
+  Attraction.find({path: "עד שעה"},function(err,data){
+    if (err) res.send(err);
+    res.json(data);
+  })
+});
 router.post('/attraction/bestpath',function(req,res,next){
+      console.log("path------------------------------------------------------------");
+
     let types=req.body.type;
     let finalResult=[];
     let area=req.body.area;
@@ -204,6 +211,7 @@ router.post('/attraction/bestpath',function(req,res,next){
     let path=req.body.path;
     let groups=req.body.groups;
     let id=req.body.UserId;
+
     let where = {}
     if(type.length>0)
       where["type"]= { $in: type };
@@ -211,8 +219,7 @@ router.post('/attraction/bestpath',function(req,res,next){
        where["groups"]= {$in: groups};
     if(area)
        where["area"]= area;
-    if(path)
-       where["time"]= path;
+       where["path"]= path;
     Attraction.find(where, function(err, resu){ 
         console.log(types+"-------");
         if (err) throw err;
