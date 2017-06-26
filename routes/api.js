@@ -211,7 +211,7 @@ router.post('/attraction/bestpath',function(req,res,next){
     let path=req.body.path;
     let groups=req.body.groups;
     let id=req.body.UserId;
-
+    console.log("im the request:"+JSON.stringify(req.body));
     let where = {}
     if(type.length>0)
       where["type"]= { $in: type };
@@ -219,9 +219,11 @@ router.post('/attraction/bestpath',function(req,res,next){
        where["groups"]= {$in: groups};
     if(area)
        where["area"]= area;
+    if(path)
        where["path"]= path;
+
     Attraction.find(where, function(err, resu){ 
-        console.log(types+"-------");
+        console.log("im the resu"+ resu);
         if (err) throw err;
         types.map((type)=>{
             let ind=0;
@@ -244,6 +246,7 @@ router.post('/attraction/bestpath',function(req,res,next){
 
         });
              User.findByIdAndUpdate(id ,{ $inc: { searchnum: 1 }, },function(err,data){
+               console.log("im priniiiiiiiiiiiiiiiiiiiiiing" +"\n"+finalResult);
                 if(err) res.json(finalResult);
                 else 
                     res.json(finalResult);
